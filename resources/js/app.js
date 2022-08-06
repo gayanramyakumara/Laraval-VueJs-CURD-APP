@@ -9,6 +9,7 @@ import axios from "axios";
 import { routes } from "./routes";
 import vmodal from 'vue-js-modal'
 
+ 
 Vue.use(VueRouter);
 Vue.use(VueAxios, axios);
 Vue.use(vmodal);

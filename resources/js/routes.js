@@ -1,32 +1,18 @@
-const Welcome = () =>
-    import(
-        "./components/Welcome.vue"
-    );
+const Welcome = () => import("./components/Welcome.vue");
 
-const SalesTeamList = () =>
-    import(
-        "./components/SalesTeam/List.vue"
-    );
+const OrderHistoryRequest = () => import("./components/Order/Add.vue");
 
-const SalesTeamEdit      = () =>
-    import(
-        "./components/SalesTeam/Edit.vue"
-    );
+const OrderHistoryList = () => import("./components/Order/List.vue");
 
 export const routes = [
     {
         name: "home",
         path: "/",
-        component: Welcome,
+        component: OrderHistoryRequest,
     },
     {
-        name: "SalesTeamList",
-        path : "/sales-team",
-        component: SalesTeamList,
-    },
-    {
-        name: "SalesTeamEdit",
-        path: "/sales-team/:id/edit",
-        component: SalesTeamEdit,
+        name: "OrderHistoryList",
+        path: "/order-history",
+        component: OrderHistoryList,
     },
 ];

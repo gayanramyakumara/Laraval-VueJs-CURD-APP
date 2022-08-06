@@ -14,4 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('sales-team', App\Http\Controllers\SalesTeamController::class)->only(['index', 'store', 'show', 'update', 'destroy']);
+Route::resource('order-details', App\Http\Controllers\OrderController::class)->only(['index', 'store']);
+Route::resource('currency-list', App\Http\Controllers\CurrencyController::class)->only(['index']);

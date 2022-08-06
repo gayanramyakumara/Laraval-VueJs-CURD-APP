@@ -5,8 +5,8 @@
 
                 <div class="collapse navbar-collapse">
                     <div class="navbar-nav">
-                        <router-link exact-active-class="active" to="/" class="nav-item nav-link">Home</router-link>
-                        <router-link exact-active-class="active" to="/sales-team" class="nav-item nav-link">Sales Team</router-link>
+                        <router-link exact-active-class="active" to="/" class="nav-item nav-link">Create Order</router-link>
+                        <router-link exact-active-class="active" to="/order-history" class="nav-item nav-link">Order History</router-link>
 
                     </div>
                 </div>
@@ -21,3 +21,4 @@
 <script>
     export default {}
 </script>
+

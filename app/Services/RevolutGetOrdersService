@@ -1,0 +1,53 @@
+<?php
+/**
+ * Retrieve all the orders 
+ * 
+ * @author Gayan R. <gayanramyakumara@gmail.com>
+ * Retrieve all the orders that you’ve created. You can also use the query parameters to: FILTER / VIEW
+ */
+namespace App\Services;
+
+use Exception;
+use Illuminate\Support\Facades\Http;
+use stdClass;
+
+class RevolutGetOrdersService
+{
+    const API_SUCCESS_STATUS = 201;
+    
+    public $header;
+
+    public function __construct()
+    {
+        $this->header = [
+            'Authorization' => env('REVOLUT_ORDER_CREATION_API_KEY')
+        ];
+    }
+
+    public function getAll(array $queryData)
+    {
+        $res = new stdClass();
+        $res->status = false;
+ 
+        try{
+    
+            $response = Http::withHeaders($this->header)
+                        ->get( 
+                            env('REVOLUT_GET_ORDERS_BY_CRITERIAS_API_URL')
+                        );
+
+            if($response->failed() === false && $response->status() == self::API_SUCCESS_STATUS){
+                $res->status = true;
+                $res->data   = json_decode($response->getBody(), true);
+            }
+
+        }catch(Exception $e){
+      
+            $res->error = $e->getMessage();
+        }
+ 
+        return $res;
+
+    }
+   
+}
